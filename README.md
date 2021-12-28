@@ -12,6 +12,18 @@
 - Learn how popular your favorite artist is on Spotify
 - Find similar artists
 
+### Demo and Screenshots
+
+![Demo](https://user-images.githubusercontent.com/23348308/108803870-a3bf7880-7550-11eb-8ccd-96abb929b3ac.gif)
+
+<div>
+  <img src="screenshots/home.JPG" />
+  <img src="screenshots/search.JPG" />
+  <img src="screenshots/result.JPG" />
+  <img src="screenshots/related.JPG" />
+  <img src="screenshots/related2.JPG" />
+</div>
+
 ![Graph](https://user-images.githubusercontent.com/23348308/108799973-b46af100-7546-11eb-9a62-bd2a0fb41b9c.PNG)
 
 The artist of interest is always displayed on the center of the canvas with the related artists revolving around them. Additionally,
@@ -22,5 +34,5 @@ The application also utilizes MongoDB to keep track of users' most recent search
 
 
 
-![Demo](https://user-images.githubusercontent.com/23348308/108803870-a3bf7880-7550-11eb-8ccd-96abb929b3ac.gif)
+
 
