@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const ApiError = require('../utils/error/ApiError');
-const apiErrorHandler = require('../utils/error/apiErrorHandler');
 const { searchForArtistById, searchForRelatedArtists } = require('../utils/searchForArtist');
 const updateSearchDB = require('../utils/updateSearchDB');
 
@@ -39,7 +38,5 @@ router.get('/:id', async function(req, res, next){
     } else next(ApiError.internal('Something went wrong when searching for related artists'));
   }
 });
-
-router.use(apiErrorHandler);
 
 module.exports = router;

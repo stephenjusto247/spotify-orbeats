@@ -3,7 +3,6 @@ const axios = require('axios');
 const router = express.Router();
 
 const ApiError = require('../utils/error/ApiError');
-const apiErrorHandler = require('../utils/error/apiErrorHandler');
 const updateAuthorizationDB = require ('../utils/updateAuthorizationDB');
 
 router.get('/resetauthorizationtokens', function(req, res) {
@@ -55,7 +54,5 @@ router.get('/requestnewauthorizationtokens', async function(req, res, next) {
     }
   }
 });
-
-router.use(apiErrorHandler);
 
 module.exports = router;

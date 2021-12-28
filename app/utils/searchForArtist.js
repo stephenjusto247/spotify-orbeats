@@ -6,7 +6,7 @@ const getAccessToken = require('./getAccessToken');
 
 async function handleError(err) {
   if (err.response) {
-    console.log('Error response code:', err.response);
+    console.log(err.response);
     if (err.response.status === 401) {
       await refreshTokens();
       return ApiError.unauthorized('Unauthorized access to Spotify API');

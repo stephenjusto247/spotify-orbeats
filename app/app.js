@@ -1,3 +1,4 @@
+// package imports
 require('dotenv').config();
 const express = require('express'); // Express web server framework
 const mongoose = require('mongoose');
@@ -5,7 +6,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 
+// project imports
 const refreshTokens = require('./utils/refreshTokens');
+const apiErrorHandler = require('./utils/error/apiErrorHandler');
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
 const relatedRouter = require('./routes/related');
@@ -32,6 +35,7 @@ app.use(express.static(__dirname + '/public'))
 app.use(indexRouter)
 .use('/search', searchRouter)
 .use('/related', relatedRouter)
+.use(apiErrorHandler)
 .use(unknownRouter);
 
 app.listen(process.env.PORT || 3000, ()=>{
