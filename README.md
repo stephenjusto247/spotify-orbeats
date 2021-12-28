@@ -16,22 +16,22 @@
 
 ![Demo](https://user-images.githubusercontent.com/23348308/108803870-a3bf7880-7550-11eb-8ccd-96abb929b3ac.gif)
 
-<div style={{display: flex; flex-direction: column; padding: 5px;}}>
-  <div style={{margin: 5px;}}>
+<div style={{padding: 7px;}}>
+  <div style={{display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 7px;}}>
     <h3 align="center">Home</h3>
     <img src="screenshots/home.JPG" />
   </div>
-  <div style={{margin: 5px;}}>
+  <div style={{display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 7px;}}>
     <h3 align="center">Searching</h3>
     <img src="screenshots/search.JPG" />
     <img src="screenshots/result.JPG" />
   </div>
-  <div style={{margin: 5px;}}>
+  <div style={{display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 7px;}}>
     <h3 align="center">Related Artists</h3>
     <img src="screenshots/related.JPG" />
     <img src="screenshots/related2.JPG" />
   </div>
-  <div style={{margin: 5px;}}>
+  <div style={{display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 7px;}}>
     <h3 align="center">Graph</h3>
     <img src="https://user-images.githubusercontent.com/23348308/108799973-b46af100-7546-11eb-9a62-bd2a0fb41b9c.PNG" />
     <p>
