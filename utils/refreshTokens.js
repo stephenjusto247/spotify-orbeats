@@ -26,7 +26,7 @@ module.exports = async function refreshTokens() {
     const response = await axios.post(url, data, authOptions);
     newAccessToken = response.data.access_token;
     // Update DB to replace old token with fresh token
-    updateAuthorizationDB(newAccessToken, refreshToken);
+    await updateAuthorizationDB(newAccessToken, refreshToken);
   } catch(err) {
     console.log("Error occured when trying to refresh token! ");
 		console.log(err.response);

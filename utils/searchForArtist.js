@@ -6,13 +6,13 @@ const getAccessToken = require('./getAccessToken');
 
 async function handleError(err) {
   if (err.response) {
-    console.log(err.response);
+    console.error(err.response.data);
     if (err.response.status === 401) {
       await refreshTokens();
       return ApiError.unauthorized('Unauthorized access to Spotify API');
     } else return new ApiError(err.response.status, 'Something went wrong');
   } else {
-    console.log(err);
+    console.error(err);
     return ApiError.internal('Unknown error occured');
   }
 }
@@ -21,7 +21,7 @@ async function handleError(err) {
 module.exports = {
   searchForArtistByName: async function(name) {
     const url = 'https://api.spotify.com/v1/search?';
-    const params = new URLSearchParams({
+    let params = new URLSearchParams({
       access_token: await getAccessToken(),
       token_type: 'Bearer',
       q: name,
@@ -34,6 +34,12 @@ module.exports = {
       const apiError = await handleError(err);
       if (apiError.code === 401) {
         try {
+          params = new URLSearchParams({
+            access_token: await getAccessToken(),
+            token_type: 'Bearer',
+            q: name,
+            type: 'artist'
+          }).toString();
           return await axios.get(`${url}${params}`).then((response) => response.data.artists.items);
         } catch (_err) {
           return await handleError(_err);
@@ -43,7 +49,7 @@ module.exports = {
   },
   searchForArtistById: async function(id) {
     const url = `https://api.spotify.com/v1/artists/${id}?`;
-    const params = new URLSearchParams({
+    let params = new URLSearchParams({
       access_token: await getAccessToken(),
       token_type: 'Bearer'
     }).toString();
@@ -54,6 +60,12 @@ module.exports = {
       const apiError = await handleError(err);
       if (apiError.code === 401) {
         try {
+          params = new URLSearchParams({
+            access_token: await getAccessToken(),
+            token_type: 'Bearer',
+            q: name,
+            type: 'artist'
+          }).toString();
           return await axios.get(`${url}${params}`).then((response) => response.data);
         } catch (_err) {
           return await handleError(_err);
@@ -63,7 +75,7 @@ module.exports = {
   },
   searchForRelatedArtists: async function(id) {
     const url = `https://api.spotify.com/v1/artists/${id}/related-artists?`
-    const params = new URLSearchParams({
+    let params = new URLSearchParams({
       access_token: await getAccessToken(),
       token_type: 'Bearer'
     }).toString();
@@ -74,6 +86,12 @@ module.exports = {
       const apiError = await handleError(err);
       if (apiError.code === 401) {
         try {
+          params = new URLSearchParams({
+            access_token: await getAccessToken(),
+            token_type: 'Bearer',
+            q: name,
+            type: 'artist'
+          }).toString();
           return await axios.get(`${url}${params}`).then((response) => response.data.artists);
         } catch (_err) {
           return await handleError(_err);

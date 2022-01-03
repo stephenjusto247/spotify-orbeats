@@ -1,7 +1,8 @@
 // package imports
 require('dotenv').config();
-const express = require('express'); // Express web server framework
+const express = require('express');
 const mongoose = require('mongoose');
+const logger = require('morgan');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
@@ -16,17 +17,19 @@ const unknownRouter = require('./routes/unknown');
 
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tokens', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 .then(async () => {
-	await refreshTokens;
+  console.log('connected to db')
+	await refreshTokens();
 })
 .catch(error => console.log(error.message));
 
 // middlewares
 app.use(express.static(__dirname + '/public'))
+.use(logger('dev'))
 .use(cors())
 .use(cookieParser())
 .use(bodyParser.urlencoded({extended: true}));
