@@ -1,4 +1,4 @@
-<h2 align="center">Spotify Orbeats</h3>
+<h2 align="center">Spotify Orbeats</h2>
 
 <p align="center">A magnificent representation of Spotify's related artists</p>
 
